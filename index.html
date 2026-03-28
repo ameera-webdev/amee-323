@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Messi 💙❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Great+Vibes&family=Dancing+Script&display=swap" rel="stylesheet">
+<style>
+body {
+  margin:0;
+  font-family:'Poppins', sans-serif;
+  background-image: url('doodle-bg.png'); /* ✅ your doodle picture */
+  background-size: cover;                  /* fills the screen */
+  background-repeat: no-repeat;            /* no tiling */
+  background-attachment: fixed;            /* keeps it still */
+  color:#333;
+  text-align:center;
+  overflow:hidden;
+}
+
+.page {
+  display:none;
+  padding:20px;
+  animation:fadeIn 1s ease forwards;
+}
+.active {display:block;}
+@keyframes fadeIn {
+  from {opacity:0; transform:translateY(20px);}
+  to {opacity:1;}
+}
+
+h1 {
+  font-family:'Great Vibes', cursive;
+  font-size:42px;
+  color:#222;
+  text-shadow:0 0 10px #ffb6c1;
+}
+
+.card {
+  background:rgba(255,255,255,0.7);
+  backdrop-filter:blur(10px);
+  padding:25px;
+  border-radius:25px;
+  border:2px dashed #000; /* doodle border */
+  max-width:500px;
+  margin:auto;
+  font-family:'Dancing Script', cursive;
+  font-size:22px;
+}
+
+button {
+  padding:14px;
+  margin:10px;
+  border:2px solid #000; /* black border */
+  border-radius:20px;
+  background:linear-gradient(135deg,#ffe4ec,#d6f0ff);
+  color:#000;
+  font-size:18px;
+  font-family:'Dancing Script', cursive;
+  width:85%;
+  transition:0.3s;
+  box-shadow:2px 2px 0px #000; /* doodle shadow */
+}
+button:hover {
+  transform:scale(1.05);
+  background:linear-gradient(135deg,#ffd6e8,#cce9ff);
+  cursor:pointer;
+}
+
+
+/* Heading */
+#p2 h1 {
+  margin-bottom: 10px;
+}
+
+/* Input box */
+#p2 input {
+  padding: 12px;
+  border: 2px dashed #000;
+  border-radius: 15px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 18px;
+  text-align: center;
+  width: 250px;
+}
+
+/* Unlock button */
+#p2 button {
+  padding: 12px 20px;
+  border: 2px solid #000;
+  border-radius: 20px;
+  background: linear-gradient(135deg,#ffe4ec,#d6f0ff);
+  font-family: 'Dancing Script', cursive;
+  font-size: 18px;
+  box-shadow: 2px 2px 0px #000;
+  transition: 0.3s;
+  width: 250px;
+}
+#p2 button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg,#ffd6e8,#cce9ff);
+  cursor: pointer;
+}
+
+.heart {
+  position:absolute;
+  animation:float 6s linear infinite;
+  color:#ff4d6d;
+}
+@keyframes float {
+  0%{transform:translateY(100vh);}
+  100%{transform:translateY(-10vh);}
+}
+
+.sparkle {
+  position:absolute;
+  font-size:20px;
+  animation:spark 1s ease forwards;
+}
+@keyframes spark {
+  from {opacity:1; transform:scale(1);}
+  to {opacity:0; transform:scale(2);}
+}
+
+/* Animated gift box */
+#giftBox {
+  font-size:80px;
+  cursor:pointer;
+  margin-top:20px;
+  display:inline-block;
+  animation:bounce 1.5s infinite, glow 2s ease-in-out infinite alternate;
+}
+@keyframes bounce {
+  0%, 100% { transform:translateY(0); }
+  50% { transform:translateY(-15px); }
+}
+@keyframes glow {
+  from { text-shadow:0 0 10px #ff7eb3, 0 0 20px #ff7eb3; }
+  to { text-shadow:0 0 25px #ff4d6d, 0 0 40px #ff4d6d; }
+}
+
+/* Letter slide-up animation */
+.letter-animate {
+  animation: slideUp 1s ease forwards;
+}
+@keyframes slideUp {
+  from { opacity:0; transform:translateY(50px) scale(0.9); }
+  to { opacity:1; transform:translateY(0) scale(1); }
+}
+
+/* 3D fold-open effect */
+.fold-open {
+  transform-origin: top;
+  animation: unfold 1s ease forwards;
+}
+@keyframes unfold {
+  0% { transform: rotateX(-90deg); opacity:0; }
+  60% { transform: rotateX(20deg); opacity:0.7; }
+  100% { transform: rotateX(0deg); opacity:1; }
+}
+</style>
+
+</head>
+<body>
+
+<!-- MUSIC -->
+<button onclick="playMusic()">🎶 Tap for music</button>
+<audio id="music" loop>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<!-- PAGE 1 -->
+<div id="p1" class="page active">
+  <h1>My Messi 🐐💙❤️</h1>
+  <img src="welcome.gif" alt="Welcome GIF" style="width:200px;">
+  <p>Our love story begins here… 🥺</p>
+  <button onclick="next('p2')">Tap to Begin 💌</button>
+</div>
+
+<!-- PASSWORD -->
+<div id="p2" class="page">
+  <h1>Only for you 🔐</h1>
+  <input id="pass" placeholder="Enter password">
+  <button onclick="check()">Unlock</button>
+  <p id="msg"></p>
+</div>
+
+<!-- MEMORY -->
+<div id="pMemory" class="page">
+  <h1>Our Love Began 💌</h1>
+  <img src="memory.gif" alt="Memory GIF" style="width:200px;">
+  <p>October 6, 2025 – the day everything changed 💙❤️</p>
+  <button onclick="next('p3')">Next 💖</button>
+</div>
+
+<!-- LOVE LETTER PAGE 1 -->
+<div id="p3" class="page">
+  <div class="card">
+    <h1>💌</h1>
+    <img src="sparkle.gif" alt="Sparkle GIF" style="width:150px;">
+    <p>
+      Ameen… 💙  
+      Every moment with you feels like magic ✨  
+      You are my smile, my calm, my forever.  
+      My world shines brighter because of you ❤️  
+    </p>
+    <button onclick="next('p4')">Next 💖</button>
+  </div>
+</div>
+
+<!-- LOVE LETTER PAGE 2 -->
+<div id="p4" class="page">
+  <div class="card">
+    <h1>💙</h1>
+    <img src="roses.gif" alt="Roses GIF" style="width:150px;">
+    <p>
+      Messi… 🐐  
+      You are not just my love, you are my best friend.  
+      With you, every day feels like a festival 🎉  
+      I promise to hold your hand through everything 💍  
+    </p>
+    <button onclick="next('pSlide')">Photo Memories 📸</button>
+  </div>
+</div>
+
+<!-- PHOTO SLIDESHOW -->
+<div id="pSlide" class="page">
+  <h1>My Unexpected Happiness 📸</h1>
+  <div class="card">
+    <img id="slideImg" src="photo1.jpg" style="width:300px; border-radius:20px;">
+    <p id="caption">Our first smile together 💙</p>
+    <button onclick="next('pGame')">Continue 💕</button>
+  </div>
+</div>
+
+<!-- THIS OR THAT GAME -->
+<div id="pGame" class="page">
+  <h1>This or That 💕</h1>
+  <img src="choices.gif" alt="Choices GIF" style="width:200px;">
+  <div class="card" style="display:flex;flex-direction:column;align-items:center;gap:25px;">
+    <p>Choose one Answer 😍</p>
+    <button onclick="alert('Aww you chose to leave 😢... but my love will wait for you 💙')">
+      Leave the page 😢
+    </button>
+    <button onclick="next('p5')">
+      Continue to see more 💖
+    </button>
+  </div>
+</div>
+
+<!-- GIFT -->
+<div id="p5" class="page">
+  <h1>For you My Juicy Daddy</h1>
+  <div id="giftBox" onclick="openGift()">🎁</div>
+
+  <!-- Hidden letter -->
+  <div id="letter" style="display:none; margin-top:20px; font-family:'Dancing Script', cursive; 
+              font-size:22px; background:rgba(255,255,255,0.7); padding:20px; 
+              border-radius:20px; border:2px dashed #000; cursor:pointer;" 
+       onclick="openFullLetter()">
+    <p>💌 Tap me to read your surprise…</p>
+  </div>
+
+  <!-- Full love letter -->
+  <div id="fullLetter" style="display:none; margin-top:20px; font-family:'Dancing Script', cursive; 
+              font-size:22px; background:rgba(255,255,255,0.9); padding:25px; 
+              border-radius:20px; border:2px dashed #000;">
+    <p>
+      My dearest Ameen 💙❤️,<br><br>
+      You are one in a million, darling.  
+      Every beat of my heart sings back to you.  
+      You are my morning, my night, my forever.  
+      You are my calm when I’m upset, my smile when I’m tired,  
+      and my joy in every single moment. 🥺💍<br><br>
+      I promise to hold your hand through every storm,  
+      to laugh with you in every sunshine,  
+      and to love you endlessly, always and forever. 💖  
+    </p>
+    <button onclick="next('p6')">Continue 💖</button>
+  </div>
+</div>
+
+<!-- LETTER PAGE -->
+<div id="p6" class="page">
+  <div class="card">
+    <h1>💌</h1>
+    <img src="heart.gif" alt="Heart GIF" style="width:150px;">
+    <p>
+      Ameen… even when I get upset,  
+      my heart always runs back to you 🥺💙  
+      You are my peace, my joy, my happiness.  
+      I love you endlessly 💍  
+    </p>
+    <button onclick="next('p7')">Next 💖</button>
+  </div>
+</div>
+
+<!-- PROPOSAL -->
+<div id="p7" class="page">
+  <h1>Will you be mine forever? 💍</h1>
+  <img src="proposal.jpg" alt="Proposal JPG" style="width:200px;">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:20px;">
+    <button onclick="yes()">YES 🎉</button>
+    <button id="no">NO 🥺</button>
+  </div>
+</div>
+
+<!-- PROMISE -->
+<div id="pPromise" class="page">
+  <h1>My Promise 💙❤️</h1>
+  <img src="promise.jpg" alt="Promise JPG" style="width:200px;">
+  <p>I’ll always be your calm, your smile, your Messi 🐐💍</p>
+  <button onclick="next('p8')">Next 💖</button>
+</div>
+
+<!-- FINAL -->
+<div id="p8" class="page">
+  <h1>Forever Together 💙❤️</h1>
+  <img src="forever.jpg" alt="Forever JPG" style="width:200px;">
+  <p>I love you, Ameen 🥺💍 <br> Nee dhan en ellam 💙 <br> Always and forever… 🥺</p>
+</div>
+
+<script>
+// Navigation
+function next(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.getElementById("music").muted = false;
+}
+
+// Play music
+function playMusic(){
+  let music = document.getElementById("music");
+  music.play();
+  music.muted = false;
+}
+
+// Password check
+function check(){
+  if(pass.value==="amee323"){next('pMemory');}
+  else msg.innerHTML="Wrong 😏";
+}
+
+// Gift reveal
+function openGift(){
+  document.getElementById("giftBox").style.display="none";
+  let letter = document.getElementById("letter");
+  letter.style.display="block";
+  letter.classList.add("letter-animate");
+
+  // Sparkles
+  for(let i=0;i<20;i++){
+    let s=document.createElement("div");
+    s.className="sparkle";
+    s.innerHTML="✨";
+    s.style.left=Math.random()*100+"vw";
+    s.style.top=Math.random()*100+"vh";
+    document.body.appendChild(s);
+    setTimeout(()=>s.remove(),1000);
+  }
+
+  // Fade in music
+  let music = document.getElementById("music");
+  music.volume = 0;
+  music.play();
+  let fade = setInterval(()=>{
+    if(music.volume < 1){
+      music.volume += 0.1;
+    } else {
+      clearInterval(fade);
+    }
+  },200);
+}
+
+// Full letter reveal
+function openFullLetter(){
+  document.getElementById("letter").style.display="none";
+  let fullLetter = document.getElementById("fullLetter");
+  fullLetter.style.display="block";
+  fullLetter.classList.add("fold-open");
+
+  // Extra sparkles
+  for(let i=0;i<30;i++){
+    let s=document.createElement("div");
+    s.className="sparkle";
+    s.innerHTML="💖";
+    s.style.left=Math.random()*100+"vw";
+    s.style.top=Math.random()*100+"vh";
+    document.body.appendChild(s);
+    setTimeout(()=>s.remove(),1200);
+  }
+}
+
+// Proposal YES
+function yes(){
+  for(let i=0;i<30;i++){
+    let h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="❤️";
+    h.style.left=Math.random()*100+"vw";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),3000);
+  }
+  setTimeout(()=>next('pPromise'),1500);
+}
+
+// Proposal NO escape
+no.onmouseover=function(){
+  this.style.position="absolute";
+  this.style.left=Math.random()*80+"%";
+  this.style.top=Math.random()*80+"%";
+}
+
+// Floating hearts background
+setInterval(()=>{
+  let h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="💙";
+  h.style.left=Math.random()*100+"vw";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+},1000);
+
+// Sparkles on click
+document.body.addEventListener("click", function(e){
+  let s = document.createElement("div");
+  s.className = "sparkle";
+  s.innerHTML = "✨";
+  s.style.left = e.pageX + "px";
+  s.style.top = e.pageY + "px";
+  document.body.appendChild(s);
+  setTimeout(()=>s.remove(),1000);
+});
+
+// Slideshow
+let photos = [
+  {src:"photo1.jpg", caption:"Our first smile together 💙"},
+  {src:"photo2.jpg", caption:"That silly moment we laughed 😍"},
+  {src:"photo3.jpg", caption:"Forever my Messi 🐐❤️"}
+];
+let currentSlide = 0;
+function nextSlide(){
+  currentSlide = (currentSlide+1) % photos.length;
+  document.getElementById("slideImg").src = photos[currentSlide].src;
+  document.getElementById("caption").innerText = photos[currentSlide].caption;
+}
+</script>
+</body>
+</html>
